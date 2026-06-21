@@ -1,4 +1,4 @@
-# GFW + enrichment edition — Syria
+# GFW + enrichment edition - Syria
 
 `vessel_anomaly_detection.ipynb` = the real-data GFW notebook **plus
 four enrichment layers applied to the flagged/suspicious vessels only**.
@@ -22,7 +22,7 @@ suspect; the metered VesselAPI is capped. Every API response is **cached to disk
 ## Hidden token inputs
 
 GFW (Section 2) and VesselAPI / DataDocked (Section 15) all use **masked
-`getpass` prompts** — nothing is echoed. Leave a prompt blank to skip that layer.
+`getpass` prompts** - nothing is echoed. Leave a prompt blank to skip that layer.
 
 ## Key design facts
 
@@ -36,7 +36,7 @@ GFW (Section 2) and VesselAPI / DataDocked (Section 15) all use **masked
   (the flagged IMOs); you look them up on Equasis, save
   `outputs/equasis_filled.csv` (`imo,registered_owner,manager,class_society,pi_club`),
   and re-run the Equasis cell to merge.
-- **OFAC** screening is a *screening aid*, not legal advice — confirm any hit
+- **OFAC** screening is a *screening aid*, not legal advice - confirm any hit
   against the official SDN entry. (OpenSanctions is a good fuzzy/EU/UN alternative.)
 
 ## Outputs (`./outputs/`)
@@ -50,7 +50,7 @@ GFW (Section 2) and VesselAPI / DataDocked (Section 15) all use **masked
 
 ## Enriched risk
 
-`enriched_risk = risk_score + 5×sanctioned + 0.5×(missing IMO)` — sanctions
+`enriched_risk = risk_score + 5×sanctioned + 0.5×(missing IMO)` - sanctions
 dominate the ranking; tune the weights in the combine cell.
 
 ## Run it
@@ -63,6 +63,6 @@ jupyter notebook vessel_anomaly_detection.ipynb
 ```
 
 > Not executed in CI (GFW/VesselAPI/DataDocked hosts are blocked by the build
-> environment's egress allowlist). All non-API logic — suspect selection, OFAC
-> parsing/screening, merges, re-ranking, enriched dashboard — was unit-tested
+> environment's egress allowlist). All non-API logic - suspect selection, OFAC
+> parsing/screening, merges, re-ranking, enriched dashboard - was unit-tested
 > offline against mock data.
